@@ -1,0 +1,80 @@
+select * from dept
+select * from emp
+
+select emp.ENAME, emp.SAL, emp.deptno, dept.deptno,  dept.dNAME, dept.LOC 
+from emp, dept 
+
+select emp.ENAME, emp.SAL, dept.deptno, emp.deptno,  dept.dNAME, dept.LOC ///sam1
+from  dept, emp
+
+
+
+select emp.ENAME, emp.SAL, dept.deptno, emp.deptno,  dept.dNAME, dept.LOC 
+from  dept, emp
+where dept.deptno=emp.deptno;
+
+
+
+select E.ENAME, E.SAL, D.deptno, E.deptno,  D.dNAME, D.LOC 
+from   emp E, DEPT D
+where E.deptno=D.deptno;
+
+select * from emp
+SELECT *FROM SALGRADE
+
+
+
+
+
+select E.ENAME, E.SAL, D.deptno, E.deptno,  D.dNAME, D.LOC 
+from   emp E, DEPT D
+where E.deptno=D.deptno;
+
+
+
+
+
+//EQUIJOIN:
+select emp.ENAME, emp.SAL, dept.deptno, emp.deptno,  dept.dNAME, dept.LOC 
+from  dept, emp
+where emp.deptno=dept.deptno;
+
+
+//NON-EQUIJOIN:
+
+SELECT E.ENAME,E.SAL,S.GRADE
+ FROM EMP E, SALGRADE S
+WHERE  E.SAL BETWEEN S.LOSAL AND S.HISAL
+
+
+//OUTER JOIN:
+
+select E.ENAME, E.SAL, D.deptno, E.deptno,  D.dNAME, D.LOC 
+from   emp E, DEPT D
+where E.deptno(+)=D.deptno;
+
+
+//SELF JOIN:
+
+SELECT E1.EMPNO,E1.ENAME,E2.MGR
+FROM EMP E1, EMP E2
+WHERE E1.EMPNO= E2.MGR
+
+
+
+SELECT ename
+  FROM   emp
+  WHERE  sal > 
+            (SELECT sal
+              FROM   emp
+               WHERE  empno=7566);
+
+
+SELECT ename FROM   emp
+  WHERE  sal > 
+            (SELECT sal
+              FROM   emp
+               WHERE  SAL=3000);
+
+
+SELECT ENAME, JOB FROM EMP WHERE JOB = (select job from emp where ename = 'SMYTHE')
